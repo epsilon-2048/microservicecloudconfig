@@ -1,0 +1,30 @@
+    #在一个文件中，可同时包含多个文件，并用"---"分隔。选择性的符号"..."可以用来表示文件结尾.
+    #在单一文件中，可用连续三个连字号(---)区分多个文件；
+    #另外，还有选择的连续三个点号(...)用来表示文件结尾.
+profiles:
+  actiove:
+    - dev
+--- #文档开始
+server:
+  port: 8201
+spring:
+  profiles: dev
+  application:
+    name: microsevicecloud-config-client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-dev.com:7001/eureka
+... #文档结束
+---
+server:
+  port: 8202
+spring:
+  profiles: test
+  application:
+    name: microsevicecloud-config-client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-test.com:7001/eureka
+...
